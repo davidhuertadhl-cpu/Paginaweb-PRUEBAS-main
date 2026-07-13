@@ -243,3 +243,27 @@
 - [x] Se eliminaron las 7 fichas individuales de materiales que ya no se necesitan.
 - [x] El catálogo conserva la acción `Configurar` hacia `cotizacion.html`.
 - [x] Se retiraron los enlaces `Explorar en detalle` que apuntaban a las fichas eliminadas.
+
+## 🧭 MENÚ MULTIPANEL ESTILO PORSCHE - 2026-07-13
+
+- [x] El menú lateral usa una columna de categorías y un panel derecho de contenido.
+- [x] Cada categoría abre su contenido sin mostrar simultáneamente los demás submenús.
+- [x] Se añadió `Menú principal` para regresar a la columna de categorías.
+- [x] El menú se reinicia al cerrarse y conserva soporte para teclado y lectores de pantalla.
+
+## 🚘 APARTADOS DE NAVEGACIÓN TIPO PORSCHE - 2026-07-13
+
+- [x] Se replicaron los apartados `Modelos`, `Asesoramiento y compra`, `Servicios`, `Experiencia` y `Concesionario`.
+- [x] `Modelos` incluye seis elementos visuales con imágenes locales de prueba.
+- [x] La navegación se genera desde `js/main.js` para mantener el mismo menú en las cinco páginas.
+- [x] Se verificó la estructura en escritorio y en viewport móvil de 390px.
+- [x] Al seleccionar un modelo se abre un tercer nivel con imagen, descripción y acción.
+- [x] El botón `‹ Modelos` devuelve a la lista sin cerrar el menú lateral.
+- [x] `Modelos` muestra 718, 911, Taycan, Panamera, Macan y Cayenne con imágenes de prueba.
+- [x] Cada coche cambia a su propia vista de variantes, igual que la referencia de Porsche.
+- [x] Menú 1 muestra las familias de coches y Menú 2 muestra esas familias junto con sus variantes.
+- [x] Cambiar de 718 a 911 en Menú 2 actualiza únicamente los coches mostrados en el panel derecho.
+- [x] El cierre del sidebar se trasladó del encabezado a un icono lateral tipo pestaña.
+- [x] El icono lateral conserva `aria-label`, `title`, cierre por overlay y cierre con `Escape`.
+- [x] El icono de cierre usa el estilo de la referencia: círculo oscuro de 40px en la esquina superior derecha del panel.
+- [x] Se ocultaron las flechas de los modelos y familias del Menú 2, conservando las flechas de categorías y navegación de regreso.

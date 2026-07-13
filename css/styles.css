@@ -856,6 +856,543 @@ body.dark-mode .sidebar-content {
     }
 }
 
+/* ==========================================================================\n+   MENÚ LATERAL MULTIPANEL\n+   ========================================================================== */
+
+.sidebar-content {
+    left: -100%;
+    width: min(760px, calc(100vw - 32px));
+    max-width: none;
+    min-width: 0;
+    padding: 0;
+    background: #fff;
+    border-right: 0;
+    box-shadow: 18px 0 50px rgba(0, 0, 0, 0.18);
+}
+
+.sidebar-header {
+    height: 72px;
+    margin: 0;
+    padding: 18px 24px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.porsche-close-btn {
+    position: absolute;
+    top: 16px;
+    right: -56px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(55, 55, 57, 0.9);
+    color: #d8d8da;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.porsche-close-btn:hover,
+.porsche-close-btn:focus-visible {
+    background: #444448;
+    color: #fff;
+    transform: scale(1.08);
+    outline: none;
+}
+
+.sidebar-navigation {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    background: #f4f4f6;
+}
+
+.sidebar-menu-list {
+    position: static;
+    z-index: auto;
+    width: 48%;
+    height: 100%;
+    margin: 0;
+    padding: 28px 24px;
+    background: #fff;
+}
+
+.menu-item-parent {
+    margin: 0 0 4px;
+    border: 0;
+}
+
+.menu-parent-btn {
+    min-height: 48px;
+    padding: 12px 12px;
+    border-radius: 6px;
+    color: #171717;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.menu-parent-btn:hover,
+.menu-parent-btn.active {
+    padding-left: 12px;
+    background: #f1f1f2;
+    opacity: 1;
+}
+
+.submenu:not(.submenu-modelos) {
+    padding: 48px 64px;
+}
+
+.menu-parent-btn.active ~ .submenu:not(.submenu-modelos) {
+    padding: 48px 64px;
+}
+
+.menu-parent-btn.active .menu-arrow {
+    transform: translateX(2px);
+}
+
+.menu-arrow {
+    font-size: 1.1rem;
+    color: #555;
+    opacity: 1;
+}
+
+.submenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 48%;
+    z-index: 1;
+    display: none;
+    max-height: none;
+    padding: 28px 32px;
+    overflow-y: auto;
+    background: #f4f4f6;
+    opacity: 1;
+}
+
+.submenu.is-visible {
+    display: block;
+    animation: sidebarPanelIn 260ms var(--p-ease-out-cubic) both;
+}
+
+.submenu-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: #222;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.submenu-back:hover {
+    color: #777;
+}
+
+.submenu-back-arrow {
+    font-size: 1.1rem;
+}
+
+.submenu li:not(:first-child) {
+    margin-bottom: 4px;
+}
+
+.submenu-link,
+.sidebar-menu-list li a.submenu-link {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 16px 20px;
+    border-radius: 6px;
+    border: 0;
+    color: #171717;
+    font-size: 1rem;
+    opacity: 1;
+}
+
+.submenu-link:hover,
+.sidebar-menu-list li a.submenu-link:hover {
+    padding-left: 20px;
+    border: 0;
+    color: #777;
+}
+
+.submenu-modelos {
+    padding-top: 48px;
+}
+
+.submenu-modelos > li:first-child {
+    margin-bottom: 12px;
+}
+
+.model-item {
+    margin: 0;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.model-link {
+    display: grid !important;
+    grid-template-columns: 72px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    min-height: 70px;
+    padding: 8px 0 !important;
+    color: #171717 !important;
+    text-decoration: none;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.model-link img {
+    width: 72px;
+    height: 50px;
+    border-radius: 3px;
+    object-fit: cover;
+    background: #e3e3e5;
+}
+
+.model-link span:not(.model-arrow) {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.model-link strong {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.model-link small {
+    color: #777;
+    font-size: 0.7rem;
+}
+
+.model-arrow {
+    display: none;
+}
+
+.model-link:hover {
+    color: #777 !important;
+}
+
+.model-link:hover img {
+    opacity: 0.78;
+}
+
+.model-detail-view {
+    position: absolute;
+    inset: 0;
+    display: none;
+    padding: 20px 32px 28px;
+    overflow-y: auto;
+    background: #f4f4f6;
+}
+
+.submenu-modelos.is-detail .model-item {
+    display: none;
+}
+
+.submenu-modelos.is-detail .model-detail-view {
+    display: block;
+    animation: sidebarPanelIn 260ms var(--p-ease-out-cubic) both;
+}
+
+.submenu-modelos.is-detail {
+    left: 0;
+    padding: 20px 0 28px;
+}
+
+.submenu-modelos.is-detail .model-detail-view {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto 1fr;
+    gap: 0;
+    padding: 0;
+}
+
+.model-detail-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 28px 40px 20px;
+    border: 0;
+    background: transparent;
+    color: #222;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.model-detail-navigation {
+    grid-column: 1;
+    padding: 0 32px 0 40px;
+    border-right: 1px solid #dedee1;
+    background: #fff;
+}
+
+.model-family-btn {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 100%;
+    min-height: 64px;
+    margin-bottom: 6px;
+    padding: 14px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #171717;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.model-family-btn small {
+    grid-column: 1;
+    color: #777;
+    font-size: 0.68rem;
+}
+
+.model-family-btn > span:last-child {
+    display: none;
+}
+
+.model-family-btn.active,
+.model-family-btn:hover {
+    background: #e9e9eb;
+}
+
+.model-detail-view > .model-detail-content {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0 56px 28px 88px;
+    overflow-y: auto;
+}
+
+.model-detail-back span {
+    font-size: 1.1rem;
+}
+
+.model-detail-content {
+    display: none;
+}
+
+.model-detail-content.is-visible {
+    display: block;
+}
+
+.model-detail-content img {
+    display: block;
+    width: min(100%, 280px);
+    height: 150px;
+    margin: 4px auto 22px;
+    border-radius: 4px;
+    object-fit: cover;
+    background: #e3e3e5;
+}
+
+.model-detail-content h3 {
+    margin: 0 0 8px;
+    color: #171717;
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.model-detail-content p {
+    max-width: 340px;
+    margin: 0 0 20px;
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.variant-list {
+    display: grid;
+    gap: 8px;
+}
+
+.variant-item {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e5e7;
+    color: #171717;
+    text-decoration: none;
+}
+
+.variant-item img {
+    width: 92px;
+    height: 58px;
+    margin: 0;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+.variant-item span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.variant-item strong {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.variant-item small {
+    color: #777;
+    font-size: 0.68rem;
+}
+
+.variant-item:hover {
+    color: #777;
+}
+
+.model-detail-action {
+    display: inline-flex;
+    padding: 11px 18px;
+    border-radius: 3px;
+    background: #111;
+    color: #fff;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+@keyframes sidebarPanelIn {
+    from { opacity: 0; transform: translateX(14px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 600px) {
+    .sidebar-content {
+        width: 100vw;
+    }
+
+    .porsche-close-btn {
+        top: 16px;
+        right: 16px;
+        width: 38px;
+        height: 38px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(55, 55, 57, 0.9);
+        color: #d8d8da;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .porsche-close-btn:hover,
+    .porsche-close-btn:focus-visible {
+        width: 38px;
+        transform: scale(1.08);
+    }
+
+    .sidebar-menu-list {
+        width: 42%;
+        padding: 22px 14px;
+    }
+
+    .menu-parent-btn {
+        padding: 12px 8px;
+        font-size: 0.82rem;
+    }
+
+    .menu-parent-btn:hover,
+    .menu-parent-btn.active {
+        padding-left: 8px;
+    }
+
+    .submenu {
+        left: 42%;
+        padding: 22px 20px;
+    }
+
+    .submenu:not(.submenu-modelos) {
+        padding: 32px 24px;
+    }
+
+    .menu-parent-btn.active ~ .submenu:not(.submenu-modelos) {
+        padding: 32px 24px;
+    }
+
+    .model-link {
+        grid-template-columns: 54px 1fr auto;
+        gap: 8px;
+    }
+
+    .model-link img {
+        width: 54px;
+        height: 40px;
+    }
+
+    .model-link strong {
+        font-size: 0.78rem;
+    }
+
+    .model-detail-view {
+        padding: 18px 20px 24px;
+    }
+
+    .submenu-modelos.is-detail .model-detail-view {
+        grid-template-columns: 42% 58%;
+    }
+
+    .model-detail-navigation {
+        padding: 0 10px 0 14px;
+    }
+
+    .model-detail-back {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .model-detail-view > .model-detail-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .model-family-btn {
+        min-height: 52px;
+        padding: 8px;
+        font-size: 0.78rem;
+    }
+
+    .model-detail-content img {
+        height: 120px;
+    }
+
+    .variant-item {
+        grid-template-columns: 72px 1fr;
+        gap: 8px;
+    }
+
+    .variant-item img {
+        width: 72px;
+        height: 46px;
+    }
+}
+
 /* Flechas de navegación del carrusel: mismo lenguaje visual que
    .circle-arrow-small, pero fuera de la tarjeta y siempre visibles */
 .journey-carousel-arrow {
