@@ -237,3 +237,9 @@
 - [x] Todas incluyen `Ver todas`, `Quiénes Somos` y `Ubicaciones`.
 - [x] Se eliminaron las variantes antiguas de `PRODUCTOS`, `SERVICIOS` e `Inicio`.
 - [x] Se validaron los 12 archivos HTML y no hay enlaces internos rotos.
+
+## 🧹 ELIMINACIÓN DE FICHAS HTML - 2026-07-13
+
+- [x] Se eliminaron las 7 fichas individuales de materiales que ya no se necesitan.
+- [x] El catálogo conserva la acción `Configurar` hacia `cotizacion.html`.
+- [x] Se retiraron los enlaces `Explorar en detalle` que apuntaban a las fichas eliminadas.
