@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Acero al Carbón | Válvulas Ros</title>
+
+    <!-- SEO: descripción específica de este material. Edítala con datos reales -->
+    <meta name="description" content="Acero al Carbón para uso industrial: tuberías, válvulas y conexiones. Diámetros, normas y disponibilidad en Válvulas Ros.">
+
+    <!-- Preconexiones a Google Fonts para mejorar velocidad de carga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Importa la fuente Inter en varios pesos (300, 400, 600, 700) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Mismo archivo CSS que el resto del sitio -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ========== BARRA DE NAVEGACIÓN FLOTANTE ==========
+         Idéntica a la del resto del sitio (index.html, nosotros.html):
+         navbar y sidebar deben verse y comportarse igual en todas las páginas. -->
+    <nav class="porsche-navbar">
+        <div class="nav-left">
+            <button id="menu-open-btn" class="porsche-menu-btn" aria-label="Abrir menú">
+                <span class="menu-text">Menú</span>
+            </button>
+        </div>
+
+        <div class="nav-center">
+            <a href="index.html" class="porsche-main-logo">Valvulas Ros</a>
+        </div>
+
+        <div class="nav-right">
+            <button id="theme-toggle" class="porsche-btn-toggle" aria-label="Cambiar tema">
+                <img src="images/logo_simple.png" alt="" class="theme-icon">
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== MENÚ LATERAL DESPLEGABLE ==========
+         Copiado tal cual del resto de páginas. Si agregas una página nueva
+         por material, recuerda actualizar este mismo bloque en TODAS las
+         páginas (index.html, nosotros.html, y cada producto-*.html) para
+         que el menú quede igual en todo el sitio. -->
+    <div id="porsche-sidebar" class="porsche-sidebar-wrapper">
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <button id="menu-close-btn" class="porsche-close-btn" aria-label="Cerrar menú">&times;</button>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <ul class="sidebar-menu-list">
+                    <li class="menu-item-parent">
+                        <button class="menu-parent-btn" data-submenu="marcas" aria-expanded="false" aria-controls="submenu-marcas">
+                            <span class="menu-parent-text">MARCAS</span>
+                            <span class="menu-arrow">›</span>
+                        </button>
+                        <ul class="submenu" id="submenu-marcas">
+                            <li><a href="marcas.html" class="submenu-link">Ver todas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-parent">
+                        <button class="menu-parent-btn" data-submenu="empresa" aria-expanded="false" aria-controls="submenu-empresa">
+                            <span class="menu-parent-text">EMPRESA</span>
+                            <span class="menu-arrow">›</span>
+                        </button>
+                        <ul class="submenu" id="submenu-empresa">
+                            <li><a href="nosotros.html" class="submenu-link">Quiénes Somos</a></li>
+                            <li><a href="index.html" class="submenu-link">Ubicaciones</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ========== BANNER DE LA PÁGINA ========== -->
+    <header class="page-banner">
+        <h1 class="page-banner-title">Acero al Carbón</h1>
+        <p class="page-banner-subtitle">Descripción corta de una línea: para qué se usa este material y por qué elegirlo.</p>
+    </header>
+
+    <main>
+        <!-- ========== INTRODUCCIÓN: texto + imagen ========== -->
+        <section class="content-section" aria-labelledby="intro-heading">
+            <h2 class="section-heading" id="intro-heading">¿Qué es Acero al Carbón?</h2>
+            <div class="historia-grid">
+                <div class="historia-text">
+                    <p>Párrafo 1: descripción general del material — de qué está hecho, sus propiedades principales (resistencia, durabilidad, peso, etc.) y por qué la industria lo utiliza.</p>
+                    <p>Párrafo 2: en qué proyectos o sectores se usa comúnmente (construcción, industria alimenticia, petróleo y gas, etc.). Edita con información real de la empresa.</p>
+                </div>
+                <div class="historia-image">
+                    <!-- TODO: reemplazar por foto real del material/producto -->
+                    <img src="images/PLACEHOLDER-material.png" alt="Acero al Carbón">
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== ESPECIFICACIONES TÉCNICAS ========== -->
+        <section class="content-section content-section--alt" aria-labelledby="specs-heading">
+            <h2 class="producto-subheading" id="specs-heading">Especificaciones Técnicas</h2>
+            <!-- TODO: ajusta filas según el material (no todas aplican a todos) -->
+            <table class="producto-specs-table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Diámetros disponibles</th>
+                        <td>Ej. 1/2" a 12"</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Presión de trabajo</th>
+                        <td>Ej. hasta 150 PSI</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Normas / certificaciones</th>
+                        <td>Ej. NOM-001, ASTM D1785</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Temperatura de uso</th>
+                        <td>Ej. -10°C a 60°C</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Presentaciones</th>
+                        <td>Ej. tubo de 6 m, conexiones roscadas y soldables</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ========== APLICACIONES / USOS ========== -->
+        <section class="content-section" aria-labelledby="usos-heading">
+            <h2 class="section-heading" id="usos-heading">Aplicaciones</h2>
+            <div class="compromiso-grid">
+                <!-- TODO: reemplaza los 4 usos de ejemplo por los reales del material -->
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">🏗</div>
+                    <h3>Uso de ejemplo 1</h3>
+                    <p>Breve descripción de este uso o sector donde aplica el material.</p>
+                </article>
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">💧</div>
+                    <h3>Uso de ejemplo 2</h3>
+                    <p>Breve descripción de este uso o sector donde aplica el material.</p>
+                </article>
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">🏭</div>
+                    <h3>Uso de ejemplo 3</h3>
+                    <p>Breve descripción de este uso o sector donde aplica el material.</p>
+                </article>
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">🔧</div>
+                    <h3>Uso de ejemplo 4</h3>
+                    <p>Breve descripción de este uso o sector donde aplica el material.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========== GALERÍA DE IMÁGENES ========== -->
+        <section class="content-section content-section--alt" aria-labelledby="galeria-heading">
+            <h2 class="producto-subheading" id="galeria-heading">Galería</h2>
+            <!-- TODO: reemplazar por fotos reales del producto (mínimo 3, máximo ~6) -->
+            <div class="producto-gallery">
+                <img src="images/PLACEHOLDER-galeria-1.png" alt="Acero al Carbón - foto 1">
+                <img src="images/PLACEHOLDER-galeria-2.png" alt="Acero al Carbón - foto 2">
+                <img src="images/PLACEHOLDER-galeria-3.png" alt="Acero al Carbón - foto 3">
+            </div>
+        </section>
+
+        <!-- ========== LLAMADO A LA ACCIÓN ========== -->
+        <section class="content-section producto-cta" aria-labelledby="cta-heading">
+            <h2 class="section-heading" id="cta-heading">¿Necesitas Acero al Carbón para tu proyecto?</h2>
+            <p>Nuestro equipo técnico te ayuda a elegir la especificación correcta y te da un tiempo de entrega real.</p>
+            <!--
+                TODO: este botón debería llevar a la página de cotización
+                cuando exista (ver roadmap: "Cotización" en el sidebar).
+                Por ahora es un <button> sin acción; cuando cotizacion.html
+                exista, cámbialo por <a href="cotizacion.html" class="porsche-btn-primary">
+                para que sea navegación real (regla #6 del proyecto).
+            -->
+            <button class="porsche-btn-primary">Solicitar cotización</button>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER (idéntico al resto del sitio) ========== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <p class="footer-logo">VÁLVULAS ROS</p>
+                <p class="footer-tagline">Soluciones industriales en tuberías, válvulas y conexiones.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="cotizacion.html">Cotización</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="mailto:ventas@valvulasros.com">ventas@valvulasros.com</a></li>
+                    <li><a href="tel:+525555550198">(55) 5555-0198</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="footer-year"></span> Válvulas Ros. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Solo JS compartido: esta página no tiene catálogo de sucursales ni
+         video de hero, así que NO se incluye home.js (igual que nosotros.html). -->
+    <script src="js/main.js"></script>
+</body>
+</html>

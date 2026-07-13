@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestras Marcas | Válvulas Ros</title>
+
+    <!-- SEO: descripción -->
+    <meta name="description" content="Marcas premium de Válvulas Ros: Válvulas Ros Premium, Tuberías Estándar, Conexiones Pro, Accesorios Industrial. Calidad industrial garantizada.">
+
+    <!-- Preconexiones a Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Mismo archivo CSS que el resto del sitio -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ========== BARRA DE NAVEGACIÓN FLOTANTE ========== -->
+    <nav class="porsche-navbar">
+        <div class="nav-left">
+            <button id="menu-open-btn" class="porsche-menu-btn" aria-label="Abrir menú">
+                <span class="menu-text">Menú</span>
+            </button>
+        </div>
+
+        <div class="nav-center">
+            <a href="index.html" class="porsche-main-logo">Valvulas Ros</a>
+        </div>
+
+        <div class="nav-right">
+            <button id="theme-toggle" class="porsche-btn-toggle" aria-label="Cambiar tema">
+                <img src="images/logo_simple.png" alt="" class="theme-icon">
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== MENÚ LATERAL DESPLEGABLE ========== -->
+    <div id="porsche-sidebar" class="porsche-sidebar-wrapper">
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <button id="menu-close-btn" class="porsche-close-btn" aria-label="Cerrar menú">&times;</button>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <ul class="sidebar-menu-list">
+                    <li class="menu-item-parent">
+                        <button class="menu-parent-btn" data-submenu="marcas" aria-expanded="false" aria-controls="submenu-marcas">
+                            <span class="menu-parent-text">MARCAS</span>
+                            <span class="menu-arrow">›</span>
+                        </button>
+                        <ul class="submenu" id="submenu-marcas">
+                            <li><a href="marcas.html" class="submenu-link">Ver todas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-parent">
+                        <button class="menu-parent-btn" data-submenu="empresa" aria-expanded="false" aria-controls="submenu-empresa">
+                            <span class="menu-parent-text">EMPRESA</span>
+                            <span class="menu-arrow">›</span>
+                        </button>
+                        <ul class="submenu" id="submenu-empresa">
+                            <li><a href="nosotros.html" class="submenu-link">Quiénes Somos</a></li>
+                            <li><a href="index.html" class="submenu-link">Ubicaciones</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ========== BANNER DE LA PÁGINA ========== -->
+    <header class="page-banner">
+        <h1 class="page-banner-title">Nuestras Marcas</h1>
+        <p class="page-banner-subtitle">Portafolio premium de soluciones industriales en tuberías, válvulas y conexiones.</p>
+    </header>
+
+    <main>
+        <!-- ========== INTRODUCCIÓN ========== -->
+        <section class="content-section" aria-labelledby="intro-heading">
+            <h2 class="section-heading" id="intro-heading">Marcas de Excelencia Industrial</h2>
+            <div class="historia-grid">
+                <div class="historia-text">
+                    <p>En Válvulas Ros contamos con un portafolio diversificado de marcas especializadas que cubren todas las necesidades de la industria: desde soluciones premium hasta productos estándar, conexiones profesionales y accesorios industriales.</p>
+                    <p>Cada marca representa nuestro compromiso con la calidad, durabilidad y confiabilidad en proyectos de cualquier escala y complejidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CARRUSEL DE MARCAS ========== -->
+        <section class="journey-section">
+            <!-- Título principal de la sección -->
+            <h2 class="journey-title">Explora Nuestras Marcas</h2>
+            
+            <!-- Carrusel: flecha izquierda + ventana + flecha derecha -->
+            <div class="journey-carousel">
+                <!-- Flecha "anterior" -->
+                <button type="button" id="brands-prev" class="journey-carousel-arrow" aria-label="Marca anterior">‹</button>
+
+                <div class="journey-viewport">
+                    <div class="journey-grid" id="brands-track">
+                        <!-- Marca 1: Válvulas Ros Premium -->
+                        <article class="journey-card" data-brand="premium">
+                            <img src="images/PLACEHOLDER-material.png" alt="Válvulas Ros Premium" class="journey-media journey-img">
+                            <video src="https://assets.mixkit.co/videos/preview/mixkit-factory-machines-manufacturing-industry-2080-large.mp4" muted loop playsinline class="journey-media journey-vid"></video>
+                            
+                            <div class="journey-overlay">
+                                <h3 class="journey-model">Válvulas Ros Premium</h3>
+                                <div class="journey-bottom">
+                                    <div class="journey-text-content">
+                                        <span class="journey-badge">LÍNEA PREMIUM</span>
+                                        <p>Válvulas de alta precisión para aplicaciones críticas</p>
+                                    </div>
+                                    <span class="circle-arrow-small">→</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Marca 2: Tuberías Estándar -->
+                        <article class="journey-card" data-brand="standard">
+                            <img src="images/Tuberia.jpg" alt="Tuberías Estándar" class="journey-media journey-img">
+                            <video src="https://assets.mixkit.co/videos/preview/mixkit-industrial-steel-tubes-in-warehouse-4057-large.mp4" muted loop playsinline class="journey-media journey-vid"></video>
+                            
+                            <div class="journey-overlay">
+                                <h3 class="journey-model">Tuberías Estándar</h3>
+                                <div class="journey-bottom">
+                                    <div class="journey-text-content">
+                                        <span class="journey-badge">ESTÁNDAR</span>
+                                        <p>Tuberías versátiles para proyectos industriales</p>
+                                    </div>
+                                    <span class="circle-arrow-small">→</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Marca 3: Conexiones Pro -->
+                        <article class="journey-card" data-brand="conexiones">
+                            <img src="images/conexiones2.jpg" alt="Conexiones Pro" class="journey-media journey-img">
+                            <video src="https://assets.mixkit.co/videos/preview/mixkit-industrial-pipes-factory-production-2089-large.mp4" muted loop playsinline class="journey-media journey-vid"></video>
+                            
+                            <div class="journey-overlay">
+                                <h3 class="journey-model">Conexiones Pro</h3>
+                                <div class="journey-bottom">
+                                    <div class="journey-text-content">
+                                        <span class="journey-badge">PROFESIONAL</span>
+                                        <p>Conexiones especializadas con certificación industrial</p>
+                                    </div>
+                                    <span class="circle-arrow-small">→</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Marca 4: Accesorios Industrial -->
+                        <article class="journey-card" data-brand="accesorios">
+                            <img src="images/bridas.jpg" alt="Accesorios Industrial" class="journey-media journey-img">
+                            <video src="https://assets.mixkit.co/videos/preview/mixkit-mechanical-metal-parts-close-up-4088-large.mp4" muted loop playsinline class="journey-media journey-vid"></video>
+                            
+                            <div class="journey-overlay">
+                                <h3 class="journey-model">Accesorios Industrial</h3>
+                                <div class="journey-bottom">
+                                    <div class="journey-text-content">
+                                        <span class="journey-badge">ACCESORIOS</span>
+                                        <p>Accesorios complementarios de alta calidad</p>
+                                    </div>
+                                    <span class="circle-arrow-small">→</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Flecha "siguiente" -->
+                <button type="button" id="brands-next" class="journey-carousel-arrow" aria-label="Siguiente marca">›</button>
+            </div>
+
+            <!-- Puntos indicadores -->
+            <div class="journey-dots" id="brands-dots"></div>
+        </section>
+
+        <!-- ========== CARACTERÍSTICAS DE MARCAS ========== -->
+        <section class="content-section content-section--alt" aria-labelledby="caracteristicas-heading">
+            <h2 class="section-heading" id="caracteristicas-heading">¿Por Qué Nuestras Marcas?</h2>
+            <div class="compromiso-grid">
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">✓</div>
+                    <h3>Certificación Garantizada</h3>
+                    <p>Todas nuestras marcas cumplen con normas internacionales y certificaciones industriales.</p>
+                </article>
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">🛠</div>
+                    <h3>Soporte Técnico</h3>
+                    <p>Asesoría especializada para elegir la marca correcta según tu aplicación.</p>
+                </article>
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">📦</div>
+                    <h3>Disponibilidad</h3>
+                    <p>Stock permanente en nuestras sucursales: Puebla, Querétaro, Guadalajara y CDMX.</p>
+                </article>
+                <article class="compromiso-card">
+                    <div class="compromiso-icon" aria-hidden="true">💰</div>
+                    <h3>Precio Competitivo</h3>
+                    <p>Relación calidad-precio óptima sin comprometer especificaciones técnicas.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========== LLAMADO A LA ACCIÓN ========== -->
+        <section class="content-section producto-cta" aria-labelledby="cta-heading">
+            <h2 class="section-heading" id="cta-heading">¿Necesitas una Marca Específica?</h2>
+            <p>Nuestro equipo técnico está disponible para asesorarte sobre cuál es la mejor opción para tu proyecto.</p>
+            <a href="cotizacion.html" class="porsche-btn-primary">Solicitar cotización</a>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <p class="footer-logo">VÁLVULAS ROS</p>
+                <p class="footer-tagline">Soluciones industriales en tuberías, válvulas y conexiones.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="cotizacion.html">Cotización</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="mailto:ventas@valvulasros.com">ventas@valvulasros.com</a></li>
+                    <li><a href="tel:+525555550198">(55) 5555-0198</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="footer-year"></span> Válvulas Ros. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/marcas.js"></script>
+
+</body>
+</html>

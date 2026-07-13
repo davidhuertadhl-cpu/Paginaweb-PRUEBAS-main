@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Cotización | Válvulas Ros</title>
+
+    <!-- SEO: descripción específica de esta página -->
+    <meta name="description" content="Solicita una cotización de tuberías, válvulas y conexiones industriales. Completa el formulario y nuestro equipo te contactará en breve.">
+
+    <!-- Preconexiones a Google Fonts para mejorar velocidad de carga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Importa la fuente Inter en varios pesos (300, 400, 600, 700) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Mismo archivo CSS que el resto del sitio -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ========== BARRA DE NAVEGACIÓN FLOTANTE ========== -->
+    <nav class="porsche-navbar">
+        <div class="nav-left">
+            <button id="menu-open-btn" class="porsche-menu-btn" aria-label="Abrir menú">
+                <span class="menu-text">Menú</span>
+            </button>
+        </div>
+
+        <div class="nav-center">
+            <a href="index.html" class="porsche-main-logo">Valvulas Ros</a>
+        </div>
+
+        <div class="nav-right">
+            <button id="theme-toggle" class="porsche-btn-toggle" aria-label="Cambiar tema">
+                <img src="images/logo_simple.png" alt="" class="theme-icon">
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== MENÚ LATERAL DESPLEGABLE ========== -->
+    <div id="porsche-sidebar" class="porsche-sidebar-wrapper">
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <button id="menu-close-btn" class="porsche-close-btn" aria-label="Cerrar menú">&times;</button>
+            </div>
+
+            <nav class="sidebar-navigation">
+                <ul class="sidebar-menu-list">
+                    <li class="menu-item-parent">
+                        <button class="menu-parent-btn" data-submenu="marcas" aria-expanded="false" aria-controls="submenu-marcas">
+                            <span class="menu-parent-text">MARCAS</span>
+                            <span class="menu-arrow">›</span>
+                        </button>
+                        <ul class="submenu" id="submenu-marcas">
+                            <li><a href="marcas.html" class="submenu-link">Ver todas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item-parent">
+                        <button class="menu-parent-btn" data-submenu="empresa" aria-expanded="false" aria-controls="submenu-empresa">
+                            <span class="menu-parent-text">EMPRESA</span>
+                            <span class="menu-arrow">›</span>
+                        </button>
+                        <ul class="submenu" id="submenu-empresa">
+                            <li><a href="nosotros.html" class="submenu-link">Quiénes Somos</a></li>
+                            <li><a href="index.html" class="submenu-link">Ubicaciones</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ========== BANNER DE LA PÁGINA ========== -->
+    <header class="page-banner">
+        <h1 class="page-banner-title">Solicitar Cotización</h1>
+        <p class="page-banner-subtitle">Completa el formulario y nuestro equipo técnico se pondrá en contacto contigo en breve.</p>
+    </header>
+
+    <main>
+        <!-- ========== FORMULARIO DE COTIZACIÓN ========== -->
+        <section class="content-section" aria-labelledby="form-heading">
+            <h2 class="section-heading" id="form-heading">Cuéntanos sobre tu proyecto</h2>
+            <div class="quotation-form-container">
+                <form id="quotation-form" class="quotation-form" method="POST" action="#">
+                    <!-- Campo: Nombre -->
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required>
+                    </div>
+
+                    <!-- Campo: Empresa -->
+                    <div class="form-group">
+                        <label for="empresa" class="form-label">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nombre de tu empresa">
+                    </div>
+
+                    <!-- Campo: Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                    </div>
+
+                    <!-- Campo: Teléfono -->
+                    <div class="form-group">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+52 55 1234-5678">
+                    </div>
+
+                    <!-- Campo: Producto de interés -->
+                    <div class="form-group">
+                        <label for="producto" class="form-label">Producto de interés</label>
+                        <select id="producto" name="producto" class="form-input" required>
+                            <option value="">Selecciona un producto</option>
+                            <option value="pvc">PVC</option>
+                            <option value="acero-carbon">Acero al Carbón</option>
+                            <option value="acero-inoxidable">Acero Inoxidable</option>
+                            <option value="cobre">Cobre</option>
+                            <option value="galvanizado">Galvanizado</option>
+                            <option value="bridas">Bridas</option>
+                            <option value="valvulas">Válvulas</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo: Cantidad estimada -->
+                    <div class="form-group">
+                        <label for="cantidad" class="form-label">Cantidad estimada</label>
+                        <input type="text" id="cantidad" name="cantidad" class="form-input" placeholder="Ej. 100 metros, 50 piezas">
+                    </div>
+
+                    <!-- Campo: Descripción -->
+                    <div class="form-group">
+                        <label for="descripcion" class="form-label">Descripción de tu proyecto</label>
+                        <textarea id="descripcion" name="descripcion" class="form-input form-textarea" placeholder="Cuéntanos sobre tu proyecto, especificaciones técnicas, plazos, etc." rows="5"></textarea>
+                    </div>
+
+                    <!-- Botón: Enviar -->
+                    <button type="submit" class="porsche-btn-primary">Enviar Cotización</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ========== INFORMACIÓN DE CONTACTO ========== -->
+        <section class="content-section content-section--alt" aria-labelledby="contacto-heading">
+            <h2 class="section-heading" id="contacto-heading">O contáctanos directamente</h2>
+            <div class="contacto-info">
+                <div class="contacto-item">
+                    <h3>Teléfono</h3>
+                    <p><a href="tel:+525555550198">(55) 5555-0198</a></p>
+                </div>
+                <div class="contacto-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:ventas@valvulasros.com">ventas@valvulasros.com</a></p>
+                </div>
+                <div class="contacto-item">
+                    <h3>Horario de atención</h3>
+                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM (Hora Centro)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER (idéntico al resto del sitio) ========== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <p class="footer-logo">VÁLVULAS ROS</p>
+                <p class="footer-tagline">Soluciones industriales en tuberías, válvulas y conexiones.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Enlaces</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="cotizacion.html">Cotización</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="mailto:ventas@valvulasros.com">ventas@valvulasros.com</a></li>
+                    <li><a href="tel:+525555550198">(55) 5555-0198</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="footer-year"></span> Válvulas Ros. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Solo JS compartido: esta página no tiene catálogo de sucursales ni
+         video de hero, así que NO se incluye home.js. -->
+    <script src="js/main.js"></script>
+</body>
+</html>
