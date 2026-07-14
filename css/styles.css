@@ -427,22 +427,18 @@ body.dark-mode .sidebar-content {
     opacity: 1;                         /* Más visible */
 }
 
-/* Submenú: lista de elementos anidados */
+/* Submenú: lista de elementos anidados
+   NOTA: el max-height de acordeón que vivía aquí (versión vieja del menú,
+   antes del rediseño multi-panel) se eliminó a propósito. Esa regla
+   ('.menu-parent-btn.active ~ .submenu { max-height: 600px; }') tenía más
+   especificidad que el nuevo '.submenu { position:absolute; ... }' de más
+   abajo, así que le ganaba y le ponía un techo de 600px al panel completo
+   -- esa era la causa de la "división" con hueco gris debajo del menú de
+   Modelos. La visibilidad ahora la controla por completo '.submenu.is-visible'
+   (ver más abajo), no un max-height animado. */
 .submenu {
     list-style: none;
-    max-height: 0;                      /* Oculto inicialmente */
-    overflow: hidden;                   /* Recorta el contenido */
-    transition: max-height var(--p-duration-md) var(--p-ease-in-out), 
-                opacity var(--p-duration-md) var(--p-ease-in-out); /* Animación suave */
-    opacity: 0;                         /* Invisible */
     padding: 0;
-}
-
-/* Submenú visible cuando el padre está activo */
-.menu-parent-btn.active ~ .submenu {
-    max-height: 600px;                  /* Altura máxima para expandir */
-    opacity: 1;                         /* Visible */
-    padding: 8px 0;                     /* Espaciado */
 }
 
 /* Enlaces dentro del submenú */
@@ -1110,6 +1106,11 @@ body.dark-mode .sidebar-content {
     display: none;
 }
 
+/* Esta regla estaba rota (le faltaba el selector, probablemente cortado
+   por accidente en una edición anterior). El display:block queda sin
+   efecto real porque la regla de abajo la vuelve a sobreescribir con
+   display:grid -- pero la animación de entrada sí faltaba y ya se
+   restauró aquí. */
 .submenu-modelos.is-detail .model-detail-view {
     display: block;
     animation: sidebarPanelIn 260ms var(--p-ease-out-cubic) both;
@@ -1146,8 +1147,8 @@ body.dark-mode .sidebar-content {
 .model-detail-navigation {
     grid-column: 1;
     padding: 0 32px 0 40px;
-    border-right: 1px solid #dedee1;
     background: #fff;
+    height: 100%;
 }
 
 .model-family-btn {
@@ -1185,7 +1186,7 @@ body.dark-mode .sidebar-content {
 .model-detail-view > .model-detail-content {
     grid-column: 2;
     grid-row: 2;
-    padding: 0 56px 28px 88px;
+    padding: 0 40px 28px 48px;
     overflow-y: auto;
 }
 
@@ -1216,6 +1217,7 @@ body.dark-mode .sidebar-content {
     color: #171717;
     font-size: 1.35rem;
     font-weight: 500;
+    text-align: center;
 }
 
 .model-detail-content p {
@@ -1224,33 +1226,36 @@ body.dark-mode .sidebar-content {
     color: #666;
     font-size: 0.85rem;
     line-height: 1.5;
+    text-align: center;
 }
 
 .variant-list {
     display: grid;
-    gap: 8px;
+    gap: 18px;
 }
 
-.variant-item {
-    display: grid;
-    grid-template-columns: 92px 1fr;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0;
+.submenu-modelos .variant-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0 0 18px;
     border-bottom: 1px solid #e5e5e7;
     color: #171717;
     text-decoration: none;
 }
 
-.variant-item img {
-    width: 92px;
-    height: 58px;
-    margin: 0;
+.submenu-modelos .variant-item img {
+    order: 2;
+    width: min(100%, 220px);
+    height: 82px;
+    margin: 10px auto 0;
     border-radius: 3px;
     object-fit: cover;
 }
 
-.variant-item span {
+.submenu-modelos .variant-item span {
+    order: 1;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -1368,8 +1373,7 @@ body.dark-mode .sidebar-content {
     }
 
     .model-detail-view > .model-detail-content {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 0 20px 24px;
     }
 
     .model-family-btn {
@@ -1383,13 +1387,12 @@ body.dark-mode .sidebar-content {
     }
 
     .variant-item {
-        grid-template-columns: 72px 1fr;
-        gap: 8px;
+        padding-bottom: 14px;
     }
 
     .variant-item img {
-        width: 72px;
-        height: 46px;
+        width: min(100%, 180px);
+        height: 64px;
     }
 }
 

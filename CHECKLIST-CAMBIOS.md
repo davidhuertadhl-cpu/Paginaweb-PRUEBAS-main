@@ -218,6 +218,19 @@
 - [x] Cuatro tarjetas de materiales organizadas en una fila compacta.
 - [x] Banner central responsive con proporción `637x167`.
 - [x] CTA del banner enlazado a `cotizacion.html`.
+
+## 🧭 MENÚ MULTIPANEL - 2026-07-13
+
+- [x] La lista izquierda del Menú 2 copia la altura, padding, tipografía y estados visuales del Menú 1.
+- [x] Se mantienen diferenciados el fondo blanco de familias y el panel gris de variantes.
+- [x] Las variantes continúan en disposición vertical y con desplazamiento independiente.
+
+### Validación
+
+- `node --check js/main.js`: correcto.
+- Analizador del workspace para `css/styles.css`: sin errores.
+- `git diff --check`: correcto.
+- Validación responsive en escritorio y móvil: sin solapamiento ni overflow horizontal.
 - [x] Sección inferior renombrada a “Ubicaciones”.
 
 > El banner usa temporalmente `images/Conexiones.jpg`. Sustituir el `src` en
