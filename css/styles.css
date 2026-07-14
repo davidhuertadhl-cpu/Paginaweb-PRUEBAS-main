@@ -485,7 +485,7 @@ body.dark-mode .sidebar-content {
 .hero-section {
     position: relative;
     width: 100%;
-    height: clamp(220px, 48vw, 520px);  /* Hero compacto para mostrar el catálogo */
+    height: 100vh;                       /* Ocupa toda la altura de la ventana */
     background-color: #000;             /* Negro si falla el video */
     overflow: hidden;                   /* Recorta el contenido sobrante */
 }
@@ -792,7 +792,7 @@ body.dark-mode .sidebar-content {
 /* Contenedor de la sección */
 .journey-section {
     padding: var(--porsche-spacing-xl) var(--porsche-spacing-lg);
-    max-width: 1400px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -839,9 +839,9 @@ body.dark-mode .sidebar-content {
     position: relative;
     flex: 0 0 100%;                     /* No crece, no encoge, ancho fijo = 100% */
     max-width: 100%;
-    border-radius: 20px;
+    border-radius: 50px;
     overflow: hidden;
-    aspect-ratio: 21 / 9;               /* Formato ancho tipo banner, no cuadrado */
+    aspect-ratio: 28 / 9;               /* Formato ancho tipo banner, no cuadrado */
     cursor: pointer;
 }
 
