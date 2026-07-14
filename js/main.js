@@ -32,12 +32,6 @@ const themeToggleBtn = document.getElementById('theme-toggle');
 
 if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-        // Animación profesional del botón
-        themeToggleBtn.style.animation = 'none';
-        setTimeout(() => {
-            themeToggleBtn.style.animation = 'themeBounce 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        }, 10);
-        
         // Togglear modo oscuro
         const isDarkMode = document.body.classList.toggle('dark-mode');
         
@@ -48,20 +42,6 @@ if (themeToggleBtn) {
             localStorage.setItem('porsche-theme', 'light');
         }
     });
-}
-
-// Agregar estilos de animación profesionales si no existen
-if (!document.getElementById('pro-animations-style')) {
-    const style = document.createElement('style');
-    style.id = 'pro-animations-style';
-    style.textContent = `
-        @keyframes themeBounce {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.15); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-    `;
-    document.head.appendChild(style);
 }
 
 /**
@@ -78,12 +58,8 @@ if (sidebar && openMenuBtn && closeMenuBtn && sidebarOverlay) {
     const openMenu = () => {
         sidebar.classList.add('active');
         document.body.style.overflow = 'hidden';
-        
-        // Animación de entrada del menú
-        const sidebarContent = sidebar.querySelector('.sidebar-content');
-        if (sidebarContent) {
-            sidebarContent.style.animation = 'menuSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        }
+        // La entrada del panel la controla la transición CSS de `left`
+        // (ver .sidebar-content en styles.css) — una sola fuente de animación.
     };
 
     const closeMenu = () => {
@@ -101,19 +77,6 @@ if (sidebar && openMenuBtn && closeMenuBtn && sidebarOverlay) {
             closeMenu();
         }
     });
-}
-
-// Agregar animación de menú si no existe
-if (!document.getElementById('menu-animations-style')) {
-    const style = document.createElement('style');
-    style.id = 'menu-animations-style';
-    style.textContent = `
-        @keyframes menuSlideIn {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-    `;
-    document.head.appendChild(style);
 }
 
 /**
@@ -149,7 +112,7 @@ if (sidebarNavigation) {
                             <button type="button" class="model-family-btn" data-family="cayenne"><strong>Cayenne</strong><small>Eléctrico | Híbrido | Gasolina</small><span>›</span></button>
                         </div>
                         <div class="model-detail-content" data-model-detail="718">
-                            <h3>718</h3><p>Visión general del modelo</p>
+                            <h3>718</h3><p>Visión general de los modelos <span aria-hidden="true">&rarr;</span></p>
                             <div class="variant-list">
                                 <a href="cotizacion.html" class="variant-item"><img src="images/Conexiones.jpg" alt="Imagen de prueba del 718 Cayman Style Edition"><span><strong>718 Cayman Style Edition</strong><small>2 variantes del modelo</small></span></a>
                                 <a href="cotizacion.html" class="variant-item"><img src="images/Tuberia.jpg" alt="Imagen de prueba del 718 Boxster GTS 4.0"><span><strong>718 Boxster GTS 4.0</strong><small>1 variante del modelo</small></span></a>
@@ -158,23 +121,23 @@ if (sidebarNavigation) {
                             </div>
                         </div>
                         <div class="model-detail-content" data-model-detail="911">
-                            <h3>911</h3><p>Visión general del modelo</p>
+                            <h3>911</h3><p>Visión general de los modelos <span aria-hidden="true">&rarr;</span></p>
                             <div class="variant-list"><a href="cotizacion.html" class="variant-item"><img src="images/Tuberia.jpg" alt="Imagen de prueba del 911 Carrera"><span><strong>911 Carrera</strong><small>Gasolina</small></span></a><a href="cotizacion.html" class="variant-item"><img src="images/VRP.png" alt="Imagen de prueba del 911 Targa"><span><strong>911 Targa</strong><small>Gasolina</small></span></a><a href="cotizacion.html" class="variant-item"><img src="images/VRG.png" alt="Imagen de prueba del 911 Turbo"><span><strong>911 Turbo</strong><small>Gasolina</small></span></a></div>
                         </div>
                         <div class="model-detail-content" data-model-detail="taycan">
-                            <h3>Taycan</h3><p>Visión general del modelo</p>
+                            <h3>Taycan</h3><p>Visión general de los modelos <span aria-hidden="true">&rarr;</span></p>
                             <div class="variant-list"><a href="cotizacion.html" class="variant-item"><img src="images/conexiones2.jpg" alt="Imagen de prueba del Taycan"><span><strong>Taycan</strong><small>Eléctrico</small></span></a><a href="cotizacion.html" class="variant-item"><img src="images/VRQ.png" alt="Imagen de prueba del Taycan GTS"><span><strong>Taycan GTS</strong><small>Eléctrico</small></span></a></div>
                         </div>
                         <div class="model-detail-content" data-model-detail="panamera">
-                            <h3>Panamera</h3><p>Visión general del modelo</p>
+                            <h3>Panamera</h3><p>Visión general de los modelos <span aria-hidden="true">&rarr;</span></p>
                             <div class="variant-list"><a href="cotizacion.html" class="variant-item"><img src="images/VRQ.png" alt="Imagen de prueba del Panamera"><span><strong>Panamera</strong><small>Híbrido | Gasolina</small></span></a><a href="cotizacion.html" class="variant-item"><img src="images/VRP.png" alt="Imagen de prueba del Panamera Turbo"><span><strong>Panamera Turbo</strong><small>Híbrido</small></span></a></div>
                         </div>
                         <div class="model-detail-content" data-model-detail="macan">
-                            <h3>Macan</h3><p>Visión general del modelo</p>
+                            <h3>Macan</h3><p>Visión general de los modelos <span aria-hidden="true">&rarr;</span></p>
                             <div class="variant-list"><a href="cotizacion.html" class="variant-item"><img src="images/VRP.png" alt="Imagen de prueba del Macan"><span><strong>Macan</strong><small>Eléctrico | Gasolina</small></span></a><a href="cotizacion.html" class="variant-item"><img src="images/VRG.png" alt="Imagen de prueba del Macan GTS"><span><strong>Macan GTS</strong><small>Eléctrico</small></span></a></div>
                         </div>
                         <div class="model-detail-content" data-model-detail="cayenne">
-                            <h3>Cayenne</h3><p>Visión general del modelo</p>
+                            <h3>Cayenne</h3><p>Visión general de los modelos <span aria-hidden="true">&rarr;</span></p>
                             <div class="variant-list"><a href="cotizacion.html" class="variant-item"><img src="images/VRG.png" alt="Imagen de prueba del Cayenne"><span><strong>Cayenne</strong><small>Eléctrico | Híbrido | Gasolina</small></span></a><a href="cotizacion.html" class="variant-item"><img src="images/Conexiones.jpg" alt="Imagen de prueba del Cayenne Turbo"><span><strong>Cayenne Turbo</strong><small>Híbrido | Gasolina</small></span></a></div>
                         </div>
                     </li>
@@ -312,6 +275,29 @@ modelFamilyBtns.forEach((familyBtn) => {
 
 if (modelDetailView && modelDetailBack) {
     modelDetailBack.addEventListener('click', closeModelDetail);
+}
+
+/**
+ * 3.5. NAVBAR TRANSPARENTE → SÓLIDA AL HACER SCROLL
+ * Sobre el hero de video (index.html) la navbar nace transparente; en
+ * páginas sin hero de pantalla completa (nosotros, catálogo, etc.) el
+ * contenido empieza en blanco/claro, así que la dejamos sólida siempre
+ * para que el texto blanco del logo/menú no quede ilegible.
+ */
+const porscheNavbar = document.querySelector('.porsche-navbar');
+
+if (porscheNavbar) {
+    const heroSection = document.querySelector('.hero-section');
+
+    if (!heroSection) {
+        porscheNavbar.classList.add('scrolled');
+    } else {
+        const updateNavbarState = () => {
+            porscheNavbar.classList.toggle('scrolled', window.scrollY > 80);
+        };
+        updateNavbarState();
+        window.addEventListener('scroll', updateNavbarState, { passive: true });
+    }
 }
 
 /**
