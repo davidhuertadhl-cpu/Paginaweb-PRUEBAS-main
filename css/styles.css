@@ -1797,7 +1797,10 @@ body.dark-mode .sidebar-content {
 
 /* Contenedor principal del footer */
 .site-footer {
-    background-color: var(--porsche-gray-dark); /* Se invierte automáticamente en modo oscuro */
+    /* Fijo (no usa --porsche-gray-dark): esa variable se invierte a casi
+       blanco en modo oscuro, y el texto de aquí es siempre blanco, así que
+       el footer debe permanecer oscuro sin importar el tema activo */
+    background-color: #111111;
     color: #ffffff;
     padding: var(--porsche-spacing-xl) var(--porsche-spacing-lg) var(--porsche-spacing-md);
     margin-top: var(--porsche-spacing-xl);       /* Separación del contenido de arriba */

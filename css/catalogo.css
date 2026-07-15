@@ -203,7 +203,16 @@
 
 /* Estados visuales de las tarjetas cuando cambia un filtro */
 .product-card.is-filtered-in {
-    animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: fadeInUp 0.5s var(--p-ease-out-cubic) both;
+}
+
+/* Paso intermedio: se desvanece y encoge antes de salir del layout,
+   en vez de desaparecer de golpe con display:none */
+.product-card.is-filtering-out {
+    transition: opacity 0.28s var(--p-ease-out-cubic), transform 0.28s var(--p-ease-out-cubic);
+    opacity: 0;
+    transform: translateY(10px) scale(0.94);
+    pointer-events: none;
 }
 
 .product-card.is-filtered-out {
@@ -398,6 +407,20 @@
 .spec-value {
     color: var(--porsche-text);
     font-weight: var(--p-font-weight-normal);
+}
+
+/* ========== ETIQUETA DE MARCA ========== */
+.product-brand-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: var(--p-radius-full);
+    background-color: var(--porsche-gray-light);
+    color: var(--porsche-text-muted);
+    font-size: var(--p-typescale-2xs);
+    font-weight: var(--p-font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ========== PRECIO ========== */

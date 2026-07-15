@@ -81,10 +81,11 @@ filterCheckboxes.forEach(checkbox => {
 function applyFilters() {
     // Recopilar filtros seleccionados
     const selectedFilters = {
+        marca: [],
         material: [],
         tipo: [],
-        tamaño: [],
-        presion: []
+        conexion: [],
+        tamaño: []
     };
 
     filterCheckboxes.forEach(checkbox => {
@@ -95,12 +96,25 @@ function applyFilters() {
     });
 
     filterProducts(selectedFilters);
+
+    // Al reducir el número de tarjetas visibles la página se vuelve más
+    // corta, y el navegador "recorta" el scroll hacia el nuevo final si
+    // estaba más abajo que la nueva altura. Subimos al encabezado del
+    // catálogo para que el usuario siempre vea el resultado del filtro.
+    const catalogHeader = document.querySelector('.catalog-header');
+    if (catalogHeader) {
+        catalogHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 // ========== 6. FUNCIÓN PARA FILTRAR PRODUCTOS ==========
+// Duración de la salida (debe coincidir con .is-filtering-out en catalogo.css)
+const FILTER_OUT_DURATION = 280;
+
 function filterProducts(filters) {
     const productCards = document.querySelectorAll('.product-card');
-    
+    let visibleIndex = 0;
+
     productCards.forEach(card => {
         // Una tarjeta coincide si cumple todos los grupos de filtros activos.
         const shouldShow = Object.entries(filters).every(([filterType, values]) => {
@@ -108,13 +122,28 @@ function filterProducts(filters) {
             const cardValue = card.dataset[filterType === 'tamaño' ? 'tamano' : filterType];
             return values.includes(cardValue);
         });
-        
+
         if (shouldShow) {
-            card.classList.remove('is-filtered-out');
-            card.classList.add('is-filtered-in');
-        } else {
+            const wasHidden = card.classList.contains('is-filtered-out') || card.style.display === 'none';
+
+            card.classList.remove('is-filtered-out', 'is-filtering-out', 'is-filtered-in');
+            card.style.display = '';
+
+            // Solo re-anima si la tarjeta estaba oculta (evita "parpadeo" en las que ya se veían)
+            if (wasHidden) {
+                void card.offsetWidth; // fuerza reflow para poder reiniciar la animación
+                card.style.animationDelay = `${Math.min(visibleIndex, 12) * 0.04}s`;
+                card.classList.add('is-filtered-in');
+            }
+            visibleIndex++;
+        } else if (!card.classList.contains('is-filtered-out')) {
+            // Transición de salida suave en vez de desaparecer de golpe
             card.classList.remove('is-filtered-in');
-            card.classList.add('is-filtered-out');
+            card.classList.add('is-filtering-out');
+            setTimeout(() => {
+                card.classList.remove('is-filtering-out');
+                card.classList.add('is-filtered-out');
+            }, FILTER_OUT_DURATION);
         }
     });
 }
