@@ -274,6 +274,22 @@
     transform: translateX(4px);
 }
 
+.filter-count {
+    color: var(--porsche-text-muted);
+    transition: color var(--p-duration-sm) var(--p-ease-in-out);
+}
+
+/* Opciones que, combinadas con los filtros ya activos, no dejan
+   ningún producto: se atenúan mas no se ocultan, para no reflujar la lista */
+.filter-options li.is-zero-match label {
+    opacity: 0.35;
+}
+
+.filter-options li.is-zero-match label:hover {
+    transform: none;
+    color: var(--porsche-text-muted);
+}
+
 .filter-options input[type="checkbox"] {
     width: 18px;
     height: 18px;

@@ -96,6 +96,7 @@ function applyFilters() {
     });
 
     filterProducts(selectedFilters);
+    updateFilterCounts(selectedFilters);
 
     // Al reducir el número de tarjetas visibles la página se vuelve más
     // corta, y el navegador "recorta" el scroll hacia el nuevo final si
@@ -105,6 +106,40 @@ function applyFilters() {
     if (catalogHeader) {
         catalogHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+}
+
+// ========== 5.1 RECALCULAR CONTEOS DE CADA OPCIÓN DE FILTRO ==========
+// El número entre paréntesis de cada checkbox debe reflejar cuántos
+// productos coinciden si se le suma a los filtros YA activos de los
+// demás grupos (no del suyo propio, para poder seguir comparando
+// opciones dentro del mismo grupo).
+function updateFilterCounts(selectedFilters) {
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterCheckboxes.forEach(checkbox => {
+        const group = checkbox.name;
+        const datasetKey = group === 'tamaño' ? 'tamano' : group;
+
+        let count = 0;
+        productCards.forEach(card => {
+            const matchesOtherGroups = Object.entries(selectedFilters).every(([filterType, values]) => {
+                if (filterType === group || values.length === 0) return true;
+                const cardValue = card.dataset[filterType === 'tamaño' ? 'tamano' : filterType];
+                return values.includes(cardValue);
+            });
+            if (matchesOtherGroups && card.dataset[datasetKey] === checkbox.value) {
+                count++;
+            }
+        });
+
+        const countEl = checkbox.closest('label')?.querySelector('.filter-count');
+        if (countEl) countEl.textContent = `(${count})`;
+
+        // Atenúa (sin deshabilitar) las opciones que ya no tienen resultados,
+        // salvo la que el usuario ya tiene seleccionada.
+        const li = checkbox.closest('li');
+        if (li) li.classList.toggle('is-zero-match', count === 0 && !checkbox.checked);
+    });
 }
 
 // ========== 6. FUNCIÓN PARA FILTRAR PRODUCTOS ==========
