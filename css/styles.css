@@ -2054,3 +2054,228 @@ body.dark-mode .sidebar-content {
     opacity: 0.8;
     line-height: 1.6;
 }
+
+/* ==========================================================================
+   10. PÁGINA "COTIZACIÓN" (Formulario dos columnas, estilo minimalista)
+   ========================================================================== */
+
+/* Sección principal: deja espacio superior para no quedar bajo la navbar fija */
+.quote-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(110px, 13vw, 170px) var(--porsche-spacing-lg) clamp(48px, 8vw, 96px);
+}
+
+/* Rejilla: formulario a la izquierda, imagen a la derecha */
+.quote-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: center;
+}
+
+/* En pantallas medianas/chicas: una sola columna (la imagen se oculta) */
+@media (max-width: 900px) {
+    .quote-layout {
+        grid-template-columns: 1fr;
+    }
+    .quote-image-col {
+        display: none;
+    }
+}
+
+/* Título de la sección */
+.quote-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+/* Subrayado ondulado decorativo bajo el título */
+.quote-title-wave {
+    display: block;
+    width: 72px;
+    height: 12px;
+    margin: 10px 0 22px;
+    color: var(--porsche-text);        /* La onda hereda el color del tema */
+}
+
+/* Texto introductorio */
+.quote-intro {
+    font-size: 1.05rem;
+    font-weight: 300;
+    opacity: 0.7;
+    max-width: 440px;
+    line-height: 1.6;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Rejilla de campos: dos columnas */
+.quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 2rem;
+}
+
+/* Campos que ocupan todo el ancho (asunto y detalles) */
+.quote-field--full {
+    grid-column: 1 / -1;
+}
+
+/* En pantallas chicas: campos apilados */
+@media (max-width: 560px) {
+    .quote-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Inputs minimalistas: solo línea inferior */
+.quote-input {
+    width: 100%;
+    padding: 10px 2px;
+    border: none;
+    border-bottom: 1px solid var(--porsche-text-muted);
+    background: transparent;
+    color: var(--porsche-text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color var(--p-duration-sm) var(--p-ease-in-out);
+}
+
+.quote-input::placeholder {
+    color: var(--porsche-text-muted);
+    opacity: 1;                        /* Firefox atenúa placeholders por defecto */
+}
+
+.quote-input:focus {
+    outline: none;
+    border-bottom-color: var(--porsche-text);
+}
+
+/* El área de detalles sí lleva borde completo y se puede redimensionar en vertical */
+.quote-textarea {
+    border: 1px solid var(--porsche-text-muted);
+    border-radius: var(--p-radius-lg);
+    padding: 12px 14px;
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* Bloque de subir archivo */
+.quote-file {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+/* Oculta el input de archivo nativo (feo) y usamos el label como botón */
+.quote-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.quote-file-btn {
+    display: inline-block;
+    padding: 9px 20px;
+    border: 1px solid var(--porsche-text);
+    border-radius: var(--p-radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--porsche-transition);
+}
+
+.quote-file-btn:hover {
+    background-color: var(--porsche-text);
+    color: var(--porsche-bg);
+}
+
+/* El foco por teclado en el input oculto marca el botón visible */
+.quote-file-input:focus-visible + .quote-file-btn {
+    outline: 2px solid var(--p-color-info);
+    outline-offset: 2px;
+}
+
+.quote-file-name {
+    font-size: 0.85rem;
+    color: var(--porsche-text-muted);
+}
+
+/* Botón de envío: pill a lo ancho */
+.quote-submit {
+    width: 100%;
+    margin-top: 2.5rem;
+    padding: 15px;
+    border: 1px solid var(--porsche-text);
+    border-radius: var(--p-radius-full);
+    background-color: var(--porsche-text);
+    color: var(--porsche-bg);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--porsche-transition);
+}
+
+.quote-submit:hover {
+    background-color: transparent;
+    color: var(--porsche-text);
+}
+
+/* Columna de imagen: placeholder mientras no haya foto real */
+.quote-image-placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--p-radius-3xl);
+    background-color: var(--porsche-gray-light);
+    border: 1px dashed var(--porsche-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--porsche-text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.quote-image-placeholder small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* Imagen real del colaborador en la columna derecha */
+.quote-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--p-radius-3xl);
+    object-fit: cover;
+}
+
+/* Horario de atención bajo el formulario */
+.quote-hours {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--porsche-text-muted);
+    line-height: 1.5;
+}
+
+.quote-hours-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    color: var(--porsche-text);
+    opacity: 0.6;
+}

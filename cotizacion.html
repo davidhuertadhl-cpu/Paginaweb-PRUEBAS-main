@@ -76,72 +76,65 @@
         </div>
     </div>
 
-    <!-- ========== BANNER DE LA PÁGINA ========== -->
-    <header class="page-banner">
-        <h1 class="page-banner-title">Solicitar Cotización</h1>
-        <p class="page-banner-subtitle">Completa el formulario y nuestro equipo técnico se pondrá en contacto contigo en breve.</p>
-    </header>
-
     <main>
-        <!-- ========== FORMULARIO DE COTIZACIÓN ========== -->
-        <section class="content-section" aria-labelledby="form-heading">
-            <h2 class="section-heading" id="form-heading">Cuéntanos sobre tu proyecto</h2>
-            <div class="quotation-form-container">
-                <form id="quotation-form" class="quotation-form" method="POST" action="#">
-                    <!-- Campo: Nombre -->
-                    <div class="form-group">
-                        <label for="nombre" class="form-label">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required>
-                    </div>
+        <!-- ========== FORMULARIO DE COTIZACIÓN (layout dos columnas) ========== -->
+        <section class="quote-section" aria-labelledby="quote-heading">
+            <div class="quote-layout">
 
-                    <!-- Campo: Empresa -->
-                    <div class="form-group">
-                        <label for="empresa" class="form-label">Empresa</label>
-                        <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nombre de tu empresa">
-                    </div>
+                <!-- Columna izquierda: encabezado + formulario -->
+                <div class="quote-form-col">
+                    <h1 class="quote-title" id="quote-heading">Cotización</h1>
+                    <!-- Subrayado ondulado decorativo (acento estilo referencia) -->
+                    <svg class="quote-title-wave" viewBox="0 0 80 12" fill="none" aria-hidden="true">
+                        <path d="M2 7 Q 12 0, 22 7 T 42 7 T 62 7 T 78 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <p class="quote-intro">Llena el formulario con los datos de tu proyecto y nuestro equipo se pondrá en contacto contigo.</p>
 
-                    <!-- Campo: Email -->
-                    <div class="form-group">
-                        <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
-                    </div>
+                    <form id="quotation-form" class="quote-form" method="POST" action="#">
+                        <div class="quote-grid">
+                            <!-- Fila 1 -->
+                            <div class="quote-field">
+                                <input type="text" id="nombre" name="nombre" class="quote-input" placeholder="Nombre" required>
+                            </div>
+                            <div class="quote-field">
+                                <input type="text" id="empresa" name="empresa" class="quote-input" placeholder="Empresa">
+                            </div>
 
-                    <!-- Campo: Teléfono -->
-                    <div class="form-group">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+52 55 1234-5678">
-                    </div>
+                            <!-- Fila 2 -->
+                            <div class="quote-field">
+                                <input type="email" id="email" name="email" class="quote-input" placeholder="Email" required>
+                            </div>
+                            <div class="quote-field">
+                                <input type="tel" id="celular" name="celular" class="quote-input" placeholder="Celular">
+                            </div>
 
-                    <!-- Campo: Producto de interés -->
-                    <div class="form-group">
-                        <label for="producto" class="form-label">Producto de interés</label>
-                        <select id="producto" name="producto" class="form-input" required>
-                            <option value="">Selecciona un producto</option>
-                            <option value="pvc">PVC</option>
-                            <option value="acero-carbon">Acero al Carbón</option>
-                            <option value="acero-inoxidable">Acero Inoxidable</option>
-                            <option value="cobre">Cobre</option>
-                            <option value="galvanizado">Galvanizado</option>
-                            <option value="bridas">Bridas</option>
-                            <option value="valvulas">Válvulas</option>
-                        </select>
-                    </div>
+                            <!-- Fila 3: asunto a lo ancho -->
+                            <div class="quote-field quote-field--full">
+                                <input type="text" id="asunto" name="asunto" class="quote-input" placeholder="Asunto">
+                            </div>
 
-                    <!-- Campo: Cantidad estimada -->
-                    <div class="form-group">
-                        <label for="cantidad" class="form-label">Cantidad estimada</label>
-                        <input type="text" id="cantidad" name="cantidad" class="form-input" placeholder="Ej. 100 metros, 50 piezas">
-                    </div>
+                            <!-- Fila 4: detalles a lo ancho -->
+                            <div class="quote-field quote-field--full">
+                                <textarea id="detalles" name="detalles" class="quote-input quote-textarea" placeholder="Escribe más detalles" rows="5"></textarea>
+                            </div>
+                        </div>
 
-                    <!-- Campo: Descripción -->
-                    <div class="form-group">
-                        <label for="descripcion" class="form-label">Descripción de tu proyecto</label>
-                        <textarea id="descripcion" name="descripcion" class="form-input form-textarea" placeholder="Cuéntanos sobre tu proyecto, especificaciones técnicas, plazos, etc." rows="5"></textarea>
-                    </div>
+                        <!-- Subir archivo (control personalizado) -->
+                        <div class="quote-file">
+                            <label for="archivo" class="quote-file-btn">Elegir archivo</label>
+                            <input type="file" id="archivo" name="archivo" class="quote-file-input">
+                            <span class="quote-file-name" id="archivo-name">No se eligió ningún archivo</span>
+                        </div>
 
-                    <!-- Botón: Enviar -->
-                    <button type="submit" class="porsche-btn-primary">Enviar Cotización</button>
-                </form>
+                        <button type="submit" class="quote-submit">Enviar</button>
+                    </form>
+                </div>
+
+                <!-- Columna derecha: imagen del colaborador -->
+                <div class="quote-image-col">
+                    <img src="images/colaborador_edu.png" alt="Asesor de Válvulas Ros" class="quote-image">
+                </div>
+
             </div>
         </section>
 
@@ -159,7 +152,7 @@
                 </div>
                 <div class="contacto-item">
                     <h3>Horario de atención</h3>
-                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM (Hora Centro)</p>
+                    <p>Lunes a Viernes: 9:00 AM - 6:30 PM (Hora Centro)</p>
                 </div>
             </div>
         </section>
@@ -199,5 +192,21 @@
     <!-- Solo JS compartido: esta página no tiene catálogo de sucursales ni
          video de hero, así que NO se incluye home.js. -->
     <script src="js/main.js"></script>
+
+    <!-- Muestra el nombre del archivo elegido junto al botón "Elegir archivo".
+         Es específico de esta página, por eso va inline y no en main.js. -->
+    <script>
+        (function () {
+            const fileInput = document.getElementById('archivo');
+            const fileName = document.getElementById('archivo-name');
+            if (fileInput && fileName) {
+                fileInput.addEventListener('change', () => {
+                    fileName.textContent = fileInput.files.length
+                        ? fileInput.files[0].name
+                        : 'No se eligió ningún archivo';
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
