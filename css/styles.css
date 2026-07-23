@@ -639,42 +639,45 @@ body.dark-mode .sidebar-content {
 
 /* ==========================================================================
 
-/* Contenedor principal de la grilla: 2 columnas grandes para diseño premium */
+/* Contenedor principal de la grilla: tarjetas de modelo estilo Porsche
+   ("Su viaje con Porsche comienza ahora."), responsivas, ~4 por fila en desktop */
 .porsche-grid-container {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columnas grandes, estilo "explora la gama" */
-    gap: clamp(12px, 1.6vw, 24px);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(20px, 2.5vw, 36px);
     padding: 0 var(--porsche-spacing-lg) clamp(24px, 4vw, 42px);
-    max-width: 1200px;                  /* Contenedor más amplio para tarjetas grandes */
-    margin: 0 auto;                     /* Centrado */
-    width: 100%;                        /* Ocupa todo lo disponible */
+    max-width: 1600px;                  /* Usa más ancho en monitores grandes,
+                                            en vez de dejar franjas enormes en blanco */
+    margin: 0 auto;
+    width: 100%;
 }
 
-/* Tarjeta individual de producto: tile grande tipo hero, no miniatura */
+/* Tarjeta individual: imagen arriba + contenido debajo (no superpuesto),
+   igual que las tarjetas de modelo reales de Porsche */
 .porsche-card {
     position: relative;
-    background-color: #000000;
-    border-radius: var(--p-radius-md);
-    height: clamp(280px, 32vw, 460px);
-    overflow: hidden;                   /* Recorta el contenido */
+    background-color: var(--porsche-bg);
+    border-radius: var(--p-radius-lg);
+    overflow: hidden;
     display: flex;
+    flex-direction: column;
     transition: var(--porsche-transition);
     cursor: pointer;
-    border: 1px solid var(--porsche-border); /* Borde sutil elegante */
-    box-shadow: var(--p-shadow-lg);    /* Sombra más profunda para presencia */
+    border: 1px solid var(--porsche-border);
 }
 
-/* Efecto hover: solo la imagen hace zoom, la tarjeta permanece firme (más sobrio) */
+/* Efecto hover: la tarjeta se levanta levemente */
 .porsche-card:hover {
-    box-shadow: var(--p-shadow-lg);
+    transform: translateY(-4px);
+    box-shadow: var(--p-shadow-md);
 }
 
-/* Contenedor de imagen */
+/* Contenedor de imagen: proporción fija, esquinas redondeadas solo arriba */
 .card-image-wrapper {
     width: 100%;
-    height: 100%;
-    border-radius: var(--p-radius-md);
-    overflow: hidden;                   /* Recorta la imagen a los bordes redondeados */
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--porsche-gray-light);
 }
 
 /* Imagen de la tarjeta */
@@ -683,109 +686,124 @@ body.dark-mode .sidebar-content {
     height: 100%;
     object-fit: cover;                  /* Cubre sin deformarse */
     transition: var(--porsche-transition);
-    border-radius: var(--p-radius-md);
 }
 
-/* Zoom al imagen al hover */
+/* Zoom sutil a la imagen en hover */
 .porsche-card:hover .card-image {
-    transform: scale(1.04);             /* Amplía 4% */
+    transform: scale(1.04);
 }
 
-/* Contenido superpuesto (título y flecha) */
-.card-overlay-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 40%, transparent 100%);
+/* Contenido debajo de la imagen: se estira porque el grid ya iguala la
+   altura de las tarjetas de una misma fila (comportamiento por defecto de
+   CSS grid), así que el link "Explora" puede anclarse siempre al fondo */
+.card-body {
     display: flex;
-    justify-content: space-between;     /* Contenido a la izquierda, flecha a la derecha */
-    align-items: flex-end;              /* Al final */
-    padding: var(--porsche-spacing-lg) var(--porsche-spacing-md);
-    z-index: 3;
+    flex-direction: column;
+    flex: 1;
+    gap: 6px;
+    padding: var(--porsche-spacing-md);
 }
 
-/* Título dentro de la tarjeta */
-.card-title {
-    color: #ffffff;
-    font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+/* Etiquetas de material/tipo, como los chips "Gasolina / Eléctrico / Híbrido"
+   de Porsche. min-height reserva el espacio de 2 líneas siempre, para que
+   el título quede a la misma altura sin importar cuántos tags tenga cada
+   tarjeta (si no, la tarjeta con más tags "empuja" el resto hacia abajo) */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 4px 0;
+    min-height: 2.2em;
+    margin-bottom: 2px;
+}
+
+.card-tag {
+    font-size: 0.7rem;
     font-weight: 600;
-    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--porsche-text-muted);
+}
+
+.card-tag:not(:last-child)::after {
+    content: "·";
+    margin-left: 6px;
+    opacity: 0.6;
+}
+
+/* Título de la tarjeta: ahora texto normal del tema, no forzado a blanco
+   (ya no va sobre una imagen oscura) */
+.card-title {
+    color: var(--porsche-text);
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-weight: 600;
+    letter-spacing: -0.3px;
     margin: 0;
 }
 
-/* Ícono circular con flecha */
-.circle-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: clamp(24px, 4vw, 36px);      /* Escala fluida */
-    height: clamp(24px, 4vw, 36px);     /* Escala fluida */
-    aspect-ratio: 1;                    /* Mantiene proporción cuadrada */
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.25); /* Semi-transparente */
-    color: #ffffff;
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem); /* Font-size fluido */
-    transition: var(--porsche-transition);
+/* Descripción corta, como la línea "Deportivo icónico de 2 puertas..." de Porsche */
+.card-description {
+    color: var(--porsche-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0 0 4px;
 }
 
-/* Hover: fonda blanco sólido */
-.porsche-card:hover .circle-arrow {
-    background-color: #ffffff;
-    color: #000000;
+/* Enlace "Explora →": texto simple con flecha, no botón/ícono circular */
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    /* Ancla el link al fondo de la tarjeta, así "Explora" queda alineado
+       en toda la fila sin importar cuántas líneas ocupe la descripción */
+    margin-top: auto;
+    padding-top: 8px;
+    color: var(--porsche-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-link-arrow {
+    transition: transform var(--p-duration-sm) var(--p-ease-out-cubic);
+}
+
+.card-link:hover .card-link-arrow {
+    transform: translateX(4px);
 }
 
 /* ==========================================================================\n+   5.1 BANNER CENTRAL DEL CATÁLOGO\n+   ========================================================================== */
 
 /* Mantiene la proporción exacta de la imagen solicitada sin deformarla */
+/* La imagen banner.png es de baja resolución nativa (637×167px): ampliarla
+   mucho la vuelve borrosa, así que se limita a un ancho moderado en vez de
+   ocupar todo el ancho de las demás secciones (que si usan fotos grandes).
+   Si en el futuro se sube una versión de mayor resolución, se puede subir
+   este máximo sin problema. */
 .catalog-promo {
-    position: relative;
-    width: min(637px, calc(100% - 32px));
-    aspect-ratio: 637 / 167;
+    width: min(860px, calc(100% - 32px));
     margin: 0 auto clamp(32px, 6vw, 64px);
-    overflow: hidden;
     border-radius: var(--p-radius-md);
+    overflow: hidden;
     background-color: var(--porsche-gray-dark);
     box-shadow: var(--p-shadow-md);
 }
 
 .catalog-promo-image {
-    width: 100%;
-    height: 100%;
     display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 637 / 167;
     object-fit: cover;
 }
 
-.catalog-promo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.08));
-}
-
+/* Barra debajo de la imagen: solo el botón, ya que el título/subtítulo/
+   iconos ya están dibujados dentro de la propia imagen (ponerlos otra vez
+   en HTML encima se veía como texto duplicado/fantasma) */
 .catalog-promo-content {
-    position: absolute;
-    z-index: 1;
-    inset: 0 auto 0 clamp(16px, 4vw, 34px);
-    width: min(58%, 360px);
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    color: #ffffff;
-}
-
-.catalog-promo-eyebrow {
-    font-size: clamp(0.55rem, 1vw, 0.75rem);
-    margin-bottom: 4px;
-    opacity: 0.85;
-}
-
-.catalog-promo-title {
-    font-size: clamp(0.9rem, 2.1vw, 1.6rem);
-    line-height: 1.1;
-    margin-bottom: 10px;
+    justify-content: flex-start;
+    padding: var(--porsche-spacing-md);
 }
 
 .catalog-promo-link {
@@ -813,7 +831,9 @@ body.dark-mode .sidebar-content {
 /* Contenedor de la sección */
 .journey-section {
     padding: var(--porsche-spacing-xl) var(--porsche-spacing-lg);
-    max-width: 900px;
+    max-width: 1400px;                  /* Antes 900px: en monitores anchos
+                                            el carrusel quedaba diminuto y
+                                            rodeado de espacio en blanco */
     margin: 0 auto;
 }
 
@@ -1483,16 +1503,12 @@ body.dark-mode .sidebar-content {
 /* En pantallas muy chicas, flechas un poco más pequeñas para no robar
    espacio a la tarjeta */
 @media (max-width: 480px) {
-    /* Tarjetas grandes apiladas en una columna, en vez de 4 miniaturas */
+    /* Tarjetas apiladas en una columna en pantallas muy chicas */
     .porsche-grid-container {
         grid-template-columns: 1fr;
         gap: 12px;
         padding-left: 10px;
         padding-right: 10px;
-    }
-
-    .porsche-card {
-        height: 220px;
     }
 
     .catalog-promo {

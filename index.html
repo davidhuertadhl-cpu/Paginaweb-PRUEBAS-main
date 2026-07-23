@@ -113,26 +113,30 @@
     </main>
 
     <!-- ========== CATÁLOGO DE MATERIALES ========== -->
-    <!-- Encabezado de sección inspirado en la referencia visual proporcionada -->
+    <!-- Encabezado de sección: mismo patrón que "Su viaje con Porsche comienza ahora." -->
     <section class="sucursales-header">
-        <h2 class="sucursales-title">LÍNEA DE PRODUCTOS</h2>
-        <p class="sucursales-subtitle">Selecciona una categoría y encuentra la solución que necesitas para tu proyecto.</p>
+        <h2 class="sucursales-title">Tu proyecto con Válvulas Ros comienza aquí.</h2>
+        <p class="sucursales-subtitle">Selecciona una categoría y descubre la variedad de soluciones que tenemos para tu proyecto.</p>
     </section>
 
-    <!-- Grid responsivo con tarjetas de sucursales -->
+    <!-- Grid de tarjetas de categoría, con el mismo patrón que las tarjetas de
+         modelo de Porsche: imagen arriba, etiquetas de material, descripción
+         corta y enlace "Explora" (en vez de texto superpuesto en la imagen) -->
     <section class="porsche-grid-container">
         <!-- Tarjeta 1: Conexiones -->
         <article class="porsche-card" data-material="conexiones">
-            <!-- Contenedor de imagen -->
             <div class="card-image-wrapper">
                 <img src="images/conexiones2.jpg" alt="Conexiones" class="card-image">
             </div>
-            <!-- Contenedor con título y enlace superpuesto -->
-            <div class="card-overlay-content">
-                <h3 class="card-title">Conexiones.</h3>
-                <a href="catalogo.html?categoria=conexiones" class="card-link" aria-label="Ver catálogo de Conexiones">
-                    <span class="circle-arrow">→</span>
-                </a>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="card-tag">PVC</span>
+                    <span class="card-tag">Acero</span>
+                    <span class="card-tag">Cobre</span>
+                </div>
+                <h3 class="card-title">Conexiones</h3>
+                <p class="card-description">Amplia gama de conexiones para instalaciones industriales y comerciales.</p>
+                <a href="catalogo.html?categoria=conexiones" class="card-link">Explora <span class="card-link-arrow">→</span></a>
             </div>
         </article>
 
@@ -141,48 +145,61 @@
             <div class="card-image-wrapper">
                 <img src="images/Tuberia.jpg" alt="Tuberías" class="card-image">
             </div>
-            <div class="card-overlay-content">
-                <h3 class="card-title">Tuberías.</h3>
-                <a href="catalogo.html?categoria=tuberia" class="card-link" aria-label="Ver catálogo de Tuberías">
-                    <span class="circle-arrow">→</span>
-                </a>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="card-tag">PVC</span>
+                    <span class="card-tag">Acero al Carbón</span>
+                    <span class="card-tag">Galvanizado</span>
+                </div>
+                <h3 class="card-title">Tuberías</h3>
+                <p class="card-description">Tuberías de alta resistencia para cualquier proyecto.</p>
+                <a href="catalogo.html?categoria=tuberia" class="card-link">Explora <span class="card-link-arrow">→</span></a>
             </div>
         </article>
 
         <!-- Tarjeta 3: Válvulas -->
         <article class="porsche-card" data-material="valvulas">
             <div class="card-image-wrapper">
-                <img src="images/valvulas.jpg" alt="Válvulas" class="card-image">
+                <img src="images/Conexiones.jpg" alt="Válvulas" class="card-image">
             </div>
-            <div class="card-overlay-content">
-                <h3 class="card-title">Válvulas.</h3>
-                <a href="catalogo.html?categoria=valvulas" class="card-link" aria-label="Ver catálogo de Válvulas">
-                    <span class="circle-arrow">→</span>
-                </a>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="card-tag">Bronce</span>
+                    <span class="card-tag">Inox</span>
+                    <span class="card-tag">Acero</span>
+                </div>
+                <h3 class="card-title">Válvulas</h3>
+                <p class="card-description">Válvulas de bola Worcester para control de flujo industrial.</p>
+                <a href="catalogo.html?categoria=valvulas" class="card-link">Explora <span class="card-link-arrow">→</span></a>
             </div>
         </article>
 
-        <!-- Tarjeta 4: Accesorios -->
-        <article class="porsche-card" data-material="accesorios">
+        <!-- Tarjeta 4: Bridas -->
+        <article class="porsche-card" data-material="bridas">
             <div class="card-image-wrapper">
-                <img src="images/accesorios.jpg" alt="Accesorios" class="card-image">
+                <img src="images/conexiones2.jpg" alt="Bridas" class="card-image">
             </div>
-            <div class="card-overlay-content">
-                <h3 class="card-title">Accesorios.</h3>
-                <a href="catalogo.html?categoria=accesorios" class="card-link" aria-label="Ver catálogo de Accesorios">
-                    <span class="circle-arrow">→</span>
-                </a>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="card-tag">Roscada</span>
+                    <span class="card-tag">Soldable</span>
+                    <span class="card-tag">Bridada</span>
+                </div>
+                <h3 class="card-title">Bridas</h3>
+                <p class="card-description">Conexiones bridadas complementarias para tu instalación.</p>
+                <a href="catalogo.html?categoria=bridas" class="card-link">Explora <span class="card-link-arrow">→</span></a>
             </div>
         </article>
     </section>
 
     <!-- ========== BANNER CENTRAL ========== -->
     <!-- La proporción coincide con la imagen final solicitada: 637 x 167 px -->
+    <!-- La imagen banner.png ya trae el título, subtítulo e iconos dibujados
+         en el archivo; por eso NO se repite ese texto en HTML encima (antes
+         se veía "fantasma"/duplicado). Solo se superpone el botón. -->
     <section class="catalog-promo" aria-label="Promoción de productos industriales">
-        <img src="images/banner.png" alt="Productos industriales para complementar una instalación" class="catalog-promo-image">
+        <img src="images/banner.png" alt="Todo lo que necesitas para complementar tu instalación: calidad y variedad para aplicaciones industriales y comerciales." class="catalog-promo-image">
         <div class="catalog-promo-content">
-            <p class="catalog-promo-eyebrow">Soluciones para tu instalación</p>
-            <h2 class="catalog-promo-title">Todo lo que necesitas para complementar tu proyecto.</h2>
             <a href="cotizacion.html" class="catalog-promo-link">Solicitar cotización</a>
         </div>
     </section>
